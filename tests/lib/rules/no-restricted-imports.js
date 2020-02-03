@@ -288,6 +288,19 @@ ruleTester.run("no-restricted-imports", rule, {
             endColumn: 17
         }]
     }, {
+        code: "import withGitignores from \"foo/bar\";",
+        options: [{
+            patterns: ["foo/*", "!foo/baz"],
+            message: "Please import from 'bar' instead."
+        }],
+        errors: [{
+            message: "'foo/bar' import is restricted from being used by a pattern. Please import from 'bar' instead.",
+            type: "ImportDeclaration",
+            line: 1,
+            column: 1,
+            endColumn: 38
+        }]
+    }, {
         code: "import withGitignores from \"foo\";",
         options: [{
             name: "foo",

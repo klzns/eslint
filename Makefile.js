@@ -570,12 +570,15 @@ target.karma = () => {
 };
 
 target.test = function() {
-    target.lint();
+
+    // target.lint();
     target.checkRuleFiles();
     target.mocha();
     target.karma();
-    target.fuzz({ amount: 150, fuzzBrokenAutofixes: false });
-    target.checkLicenses();
+
+    // target.fuzz({ amount: 150, fuzzBrokenAutofixes: false });
+
+    // target.checkLicenses();
 };
 
 target.docs = function() {
